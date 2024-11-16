@@ -1,5 +1,7 @@
 package com.aluracursos.literalura.principal;
 
+import com.aluracursos.literalura.model.Datos;
+import com.aluracursos.literalura.service.ConsumoApi;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -40,7 +42,7 @@ public class Principal {
             }
             switch (opcion) {
                 case 1:
-                    //funcion buscar libro por titulo
+                    obtenerDatosApi();
                     break;
                 case 2:
                     //funcion listar libros registrados
@@ -62,4 +64,15 @@ public class Principal {
         }
 
     }
+public void obtenerDatosApi() throws IOException, InterruptedException {
+    ConsumoApi consumoApi = new ConsumoApi();
+    System.out.println("Ingrese el titulo del libro que desea buscar:");
+    String titulo = scanner.nextLine();
+
+    var tituloBuscado = consumoApi.consultaApi(titulo.toLowerCase().replace(" ", "+"));
+    System.out.println(tituloBuscado);
+}
+
+
+
 }

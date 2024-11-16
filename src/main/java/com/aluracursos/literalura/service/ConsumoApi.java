@@ -1,4 +1,4 @@
-package com.aluracursos.literalura.model;
+package com.aluracursos.literalura.service;
 
 import java.io.IOException;
 import java.net.URI;
