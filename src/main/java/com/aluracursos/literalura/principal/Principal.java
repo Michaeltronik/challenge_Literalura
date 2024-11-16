@@ -2,6 +2,7 @@ package com.aluracursos.literalura.principal;
 
 import com.aluracursos.literalura.model.Datos;
 import com.aluracursos.literalura.service.ConsumoApi;
+import com.aluracursos.literalura.service.ConvierteDatos;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -66,11 +67,14 @@ public class Principal {
     }
 public void obtenerDatosApi() throws IOException, InterruptedException {
     ConsumoApi consumoApi = new ConsumoApi();
+    ConvierteDatos convertir = new ConvierteDatos();
     System.out.println("Ingrese el titulo del libro que desea buscar:");
     String titulo = scanner.nextLine();
 
     var tituloBuscado = consumoApi.consultaApi(titulo.toLowerCase().replace(" ", "+"));
     System.out.println(tituloBuscado);
+    Datos datosLibro = convertir.obtenerDatos(tituloBuscado,Datos.class);
+    System.out.println(datosLibro);
 }
 
 
