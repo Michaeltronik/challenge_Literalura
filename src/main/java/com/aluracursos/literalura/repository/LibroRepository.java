@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface LibroRepository extends JpaRepository<Libro,Long> {
     Optional<Libro> findByIdApi(Long idApi);
+
     @Query("SELECT l FROM Libro l")
     List<Libro> findAllLibros();
 }

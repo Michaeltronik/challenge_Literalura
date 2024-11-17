@@ -56,10 +56,24 @@ public class Autor {
 
     @Override
     public String toString() {
-        return "Autor{" +
-                "nombre='" + nombre + '\'' +
-                ", fechaDeNacimiento=" + fechaDeNacimiento +
-                ", fechaDeFallecimiento=" + fechaDeFallecimiento +
-                '}';
+        // Construir el nombre del autor y sus libros
+        StringBuilder sb = new StringBuilder();
+        sb.append("******************** Autor **************************\n");
+        sb.append("Autor: ").append(nombre).append("\n");
+        sb.append("Fecha de nacimiento ").append(fechaDeNacimiento).append("\n");
+        sb.append("Fecha de Fallecimiento ").append(fechaDeFallecimiento).append("\n");
+
+        // Solo mostrar los títulos de los libros
+        if (libros != null && !libros.isEmpty()) {
+            sb.append("Libros escritos: ");
+            for (Libro libro : libros) {
+                sb.append(libro.getTitulo()).append(", ");
+            }
+            sb.delete(sb.length() - 2, sb.length());
+        } else {
+            sb.append("No tiene libros.");
+        }
+        sb.append("\n____________________________________________________");
+        return sb.toString();
     }
 }

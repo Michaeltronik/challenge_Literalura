@@ -28,6 +28,7 @@ public class LibroService {
         } else {
             // Si no existe, entonces guarda el libro
             libroRepository.save(libro);
+            System.out.println("\nEl libro se ha guardado con éxito :)\n");
         }
     }
 
